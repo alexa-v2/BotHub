@@ -24,7 +24,7 @@ class Uniborg(TelegramClient):
         # This means that using the Storage type as a storage would work too.
         self._name = "LoggedIn"
         self.storage = storage or (lambda n: Storage(Path("data") / n))
-        self._logger = logging.getLogger("UniBorg")
+        self._logger = logging.getLogger("BotHub")
         self._plugins = {}
         self._plugin_path = plugin_path
         self.config = api_config
@@ -121,6 +121,7 @@ class Uniborg(TelegramClient):
 
         del self._plugins[shortname]
         self._logger.info(f"Removed plugin {shortname}")
+        self._logger.info(f"just do .cl to know your cmd list")
 
     def await_event(self, event_matcher, filter=None):
         fut = asyncio.Future()
